@@ -1699,3 +1699,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636f7c91ac4805143b1a108adafff6cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bestScoreText: {fileID: 563052678}
+  nameInput: {fileID: 1928716862}

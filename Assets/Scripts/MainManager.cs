@@ -10,7 +10,7 @@ public class MainManager : MonoBehaviour
     public int LineCount = 6;
     public Rigidbody Ball;
 
-    public Text ScoreText;
+    public Text ScoreText, BestScoreText;
     public GameObject GameOverText;
     
     private bool m_Started = false;
@@ -22,6 +22,7 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ShowBestScore();
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -70,7 +71,14 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
+        MenuUI.SaveCurrentRecord(m_Points);
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
+
+    void ShowBestScore() {
+        BestScoreText.text = "Best Score: " + (MenuUI.highestRecord == null ?
+            "NO BODY" : $"{MenuUI.highestRecord.name}: {MenuUI.highestRecord.score}");
+    }
+
 }
